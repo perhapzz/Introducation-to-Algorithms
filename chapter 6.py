@@ -17,13 +17,13 @@ class Heap:
         self.data.insert(0, 0)
         self.size = len(data)
 
-    def Output(self):
+    def output(self):
         if self.size < 1:
             print("None")
         else:
             print(self.data[1:])
 
-    def MaxHeapify(self, i):
+    def max_heapify(self, i):
         key = self.data[i]
         j = i * 2
         while j <= self.size:
@@ -37,30 +37,30 @@ class Heap:
                 break
         self.data[i] = key
 
-    def BuildMaxHeap(self):
+    def build_max_heap(self):
         for i in reversed(range(1, int(self.size / 2) + 1)):
-            self.MaxHeapify(i)
+            self.max_heapify(i)
 
-    def HeapSort(self):
-        self.BuildMaxHeap()
+    def heap_sort(self):
+        self.build_max_heap()
         for i in reversed(range(2, self.size + 1)):
             self.data[i], self.data[1] = self.data[1], self.data[i]
             self.size -= 1
-            self.MaxHeapify(1)
+            self.max_heapify(1)
 
-    def HeapMaximum(self):
+    def heap_maximum(self):
         return self.data[1]
 
-    def HeapExtractMax(self):
+    def heap_extract_max(self):
         if self.size < 1:
             return None
         res = self.data[1]
         self.data[1] = self.data[self.size]
         self.size -= 1
-        self.MaxHeapify(1)
+        self.max_heapify(1)
         return res
 
-    def HeapIncreaseKey(self, i, key):
+    def heap_increase_key(self, i, key):
         if self.data[i] > key:
             print("new key is smaller than current key")
             return None
@@ -73,10 +73,10 @@ class Heap:
                 break
         self.data[i] = key
 
-    def MaxHeapInsert(self, key):
+    def max_heap_insert(self, key):
         self.size = self.size + 1
         self.data.append(float("-inf"))
-        self.HeapIncreaseKey(self.size, key)
+        self.heap_increase_key(self.size, key)
 
 
 if __name__ == '__main__':
@@ -84,8 +84,8 @@ if __name__ == '__main__':
     A = Heap(array)
     # for i in array:
     #     A.MaxHeapInsert(i)
-    A.BuildMaxHeap()
-    A.Output()
+    A.build_max_heap()
+    A.output()
 
 
 # 4 1 3 2 16 9 10 14 8 7

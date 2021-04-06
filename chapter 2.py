@@ -1,5 +1,5 @@
 # P10\ 2.1-2
-def InsertSort(list, reverse = False):
+def insert_sort(list, reverse = False):
     for i in range(1, len(list)):
         key = list[i]
         j = i - 1
@@ -14,7 +14,7 @@ def InsertSort(list, reverse = False):
         list[j + 1] = key
 
 # 2.3-4
-def InsertSort_recur(list, n, reverse = False):
+def insert_sort_recur(list, n, reverse = False):
     if n > 0:
         InsertSort_recur(list, n - 1, reverse)
         key = list[n]
@@ -30,14 +30,14 @@ def InsertSort_recur(list, n, reverse = False):
         list[i + 1] = key
 
 # 2.1-3
-def LinearSearch(list, x):  # if cannot find x then return -1
+def linear_search(list, x):  # if cannot find x then return -1
     for i in range(len(list)):
         if list[i] == x:
             return i
     return -1
 
 # 2. 3-5
-def BinarySearch(list, x):
+def binary_search(list, x):
     left = 0
     right = len(list) - 1
     while left <= right:
@@ -49,7 +49,7 @@ def BinarySearch(list, x):
     return right
 
 # P17
-def Merge(list, p, q, r):  # list[p..q] and list[q+1..r] are both sorted, merge them into one list
+def merge(list, p, q, r):  # list[p..q] and list[q+1..r] are both sorted, merge them into one list
     n1 = q - p + 1
     n2 = r - q
     # let list[1..n1+1] and list[1..n2+1] be new arrays
@@ -72,7 +72,7 @@ def Merge(list, p, q, r):  # list[p..q] and list[q+1..r] are both sorted, merge 
             j += 1
 
 # 2.3-2
-def Merge_2(list, p, q, r):
+def merge_2(list, p, q, r):
     n1 = q - p + 1
     n2 = r - q
     # let list[1..n1+1] and list[1..n2+1] be new arrays
@@ -102,7 +102,7 @@ def Merge_2(list, p, q, r):
         j += 1
         k += 1
 
-def MergeSort(list, p, q):  # first call MergeSort(list, 0, len(list) - 1)
+def merge_sort(list, p, q):  # first call MergeSort(list, 0, len(list) - 1)
     if p < q:
         mid = int((p + q) / 2)
         MergeSort(list, p, mid)
@@ -110,7 +110,7 @@ def MergeSort(list, p, q):  # first call MergeSort(list, 0, len(list) - 1)
         Merge_2(list, p, mid, q)
 
 # 2-2
-def BubbleSort(list):
+def bubble_sort(list):
     for i in range(1, len(list)):
         for j in reversed(range(i, len(list))):
             if list[j - 1] > list[j]:
@@ -121,7 +121,7 @@ def main():
 
 if __name__ == '__main__':
     list = list(map(int, input().strip().split()))
-    BubbleSort(list)
+    bubble_sort(list)
     print(list)
 
 
